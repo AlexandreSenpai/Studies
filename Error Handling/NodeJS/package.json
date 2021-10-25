@@ -1,0 +1,19 @@
+{
+  "name": "estudos",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "AlenxadreSenpai",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/node": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "nodemon": "^2.0.14"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "dev": "nodemon --exec babel-node index.js"
+  }
+}
