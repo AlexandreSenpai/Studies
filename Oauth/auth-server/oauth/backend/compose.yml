@@ -1,0 +1,46 @@
+services:
+  oauth-server:
+    build: .
+    ports:
+      - "8080:8080"
+    networks:
+      - oauth_net
+    depends_on:
+      - mongo
+      - redict
+  redict:
+    image: registry.redict.io/redict
+    ports:
+      - "6379:6379"
+    networks:
+      - oauth_net
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    restart: always
+    environment:
+      REDIS_HOSTS: redict
+      REDIS_HOST: redict
+      REDIS_PORT: redict:6379
+      REDIS_PASSWORD: root
+      HTTP_USER: root
+      HTTP_PASSWORD: root
+    ports:
+      - 8081:8081
+    depends_on:
+      - redict
+    networks:
+      - oauth_net
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=alexandresenpai
+      - MONGO_INITDB_ROOT_PASSWORD=nasakuki20
+    volumes:
+      - ~/.docker-volumes/mongo:/data/db
+    networks:
+      - oauth_net
+networks:
+  oauth_net:
+    driver: bridge

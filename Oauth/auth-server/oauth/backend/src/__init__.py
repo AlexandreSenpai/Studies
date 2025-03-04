@@ -1,0 +1,1 @@
+from src.infra.entrypoints.server import server

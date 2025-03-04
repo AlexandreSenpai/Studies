@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "oauth-server"
+version = "0.1.0"
+description = ""
+authors = ["Alexandre Brito <alexandre_brito_de_souza_ramos_hvar@whirlpool.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.110.2"
+oauthlib = "^3.2.2"
+uvicorn = "^0.29.0"
+motor = "^3.4.0"
+beanie = "^1.25.0"
+pyjwt = "^2.8.0"
+firebase-admin = "^6.5.0"
+httpx = "^0.27.0"
+python-dotenv = "^1.0.1"
+redis = "^5.0.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
